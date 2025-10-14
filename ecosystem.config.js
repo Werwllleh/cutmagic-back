@@ -4,7 +4,7 @@ module.exports = {
   apps: [{
     name: 'cutmagic-backend',
     instance_var: 'INSTANCE_ID',
-    script: (env === 'dev') ? 'npm run start:dev' : 'npm run start',
+    script: (env === 'dev') ? 'npm run start:dev' : 'npm run build && npm run start:prod',
     watch: false,
     wait_ready: true,
     // out_file: path.resolve(__dirname, 'logs/web.out.log'), //?
