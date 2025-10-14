@@ -1,4 +1,3 @@
-import * as process from "node:process";
 import {NestFactory} from "@nestjs/core";
 import {AppModule} from "./app.module";
 
@@ -6,6 +5,11 @@ import {AppModule} from "./app.module";
 async function start() {
     const PORT = process.env.PORT || 5000;
     const app = await NestFactory.create(AppModule);
+
+    app.enableCors({
+        origin: [`${process.env.SERVER_URL}`],
+        credentials: true,
+    })
 
     /*const config = new DocumentBuilder()
         .setTitle('Курс по NestJs')
